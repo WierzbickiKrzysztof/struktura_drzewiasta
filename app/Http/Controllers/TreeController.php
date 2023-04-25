@@ -45,6 +45,7 @@ class TreeController extends Controller
     }
 
 
+
     public function pos_edit($id)
     {
         $pos  = Tree::where('parent_id', $id)->pluck('name', 'id')->toArray();
@@ -114,6 +115,14 @@ class TreeController extends Controller
                 'position' => 'required'
             ]);
 
+        function checkDuplicates(array $input_array) {
+            return count($input_array) === count(array_flip($input_array));
+        }
+
+
+        if(!checkDuplicates($formFields['position'])){
+            return back()->with('errorMsg','Błąd: Jedna z pozycji została wybrana dwa razy');
+        }
 
             $tree->update($formFields);
 

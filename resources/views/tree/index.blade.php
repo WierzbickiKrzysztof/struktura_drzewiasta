@@ -19,7 +19,7 @@
         </a>
         <a href="{{ route('tree.index') }}">
             <button type="button" class="btn btn-info">
-                Sortowanie według dodania
+                Sortowanie według użytkownika
             </button>
         </a>
     </div>
@@ -35,7 +35,7 @@
             <span class="material-symbols-outlined">cancel</span>
         </button>
 
-        <button type="button" id="edit" class="btn btn-link p-0 m-0" data-bs-toggle="modal" data-bs-target="#editModal"  onclick="editForm('{{ $node->name }}', '{{ $node->id }}', '{{ $node->position }}')">
+        <button type="button" id="edit" class="btn btn-link p-0 m-0" data-bs-toggle="modal" data-bs-target="#editModal"  onclick="editForm('{{ $node->name }}', '{{ $node->id }}')">
             <span class="material-symbols-outlined">edit</span>
         </button>
         <input type="hidden" name="position" id="position" value="{{ $node->position }}">
@@ -156,25 +156,12 @@
                             <input type="text" class="form-control" id="name_edit" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="parent_id_edit">Parent node:</label>
+                            <label for="parent_id_edit">Rodzic:</label>
                             <select class="form-control" id="parent_id_edit" name="parent_id">
                                 <option value="">-- placeholder --</option>
                             </select>
                         </div>
-
-                    <div class="form-group">
-                        <label for="position_edit">Pozycja:</label>
-                        <input type="text" class="form-control" id="position_edit" name="position" required>
-                    </div>
-
-
-{{--                    <div class="form-group">--}}
-{{--                        <label for="position_edit">Pozycja:</label>--}}
-{{--                        <select class="form-control" id="position_edit" name="position">--}}
-{{--                            <option value="">-- placeholder --</option>--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
-
+                    
 
                 </div>
                 <div class="modal-footer">

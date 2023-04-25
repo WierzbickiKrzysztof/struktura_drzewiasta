@@ -14,7 +14,7 @@
 <body>
 <nav class="navbar navbar-dark navbar-expand-md py-3" style="--bs-dark-rgb: 33,37,41;--bs-danger-rgb: 81,0,0;">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="">
+        <a class="navbar-brand d-flex align-items-center" href="/">
             <span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><i class="fas fa-tree"></i></span><span>Drzewko</span></a>
         <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5">
             <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>

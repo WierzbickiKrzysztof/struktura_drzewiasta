@@ -15,7 +15,7 @@
                 <span class="material-symbols-outlined">cancel</span>
             </button>
 
-            <button type="button" id="edit" class="btn btn-link p-0 m-0" data-bs-toggle="modal" data-bs-target="#editModal"  onclick="editForm('{{ $node->name }}', '{{ $node->id }}', '{{ $node->position }}')">
+            <button type="button" id="edit" class="btn btn-link p-0 m-0" data-bs-toggle="modal" data-bs-target="#editModal"  onclick="editForm('{{ $node->name }}', '{{ $node->id }}')">
                 <span class="material-symbols-outlined">edit</span>
             </button>
 

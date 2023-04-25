@@ -1,14 +1,12 @@
 <x-main>
-<ul class="list-group">
-
-
-
-
-{{--    @dd($pos)--}}
-
-
+    <h2>Ustaw kolejność</h2>
+    <h3>Pozycje nie mogą się powtarzać</h3>
         <form method="POST" id="editForm" action="/tree/pos/{{ request()->route('id') }}" >
             <div class="modal-body">
+
+                @if(Session::has('errorMsg'))
+                    <div class="alert alert-danger"> {{ Session::get('errorMsg') }}</div>
+                @endif
 
                 @csrf
                 @method('PUT')
@@ -17,8 +15,8 @@
                 @foreach ($pos as $key => $value)
 
                 <div class="form-group">
-                    <label for="parent_id_edit">Pozycja {{ $poz }}:</label>
-                    <select class="form-control" id="parent_id_edit" name="position[{{ $poz }}]">
+                    <label for="position[{{ $poz }}]">Pozycja {{ $poz }}:</label>
+                    <select class="form-control" id="position[{{ $poz }}]" name="position[{{ $poz }}]">
                         @foreach ($pos as $key => $value)
                         <option value="{{ $key }}">[{{ $key }}]{{ $value }}</option>
                         @endforeach
@@ -43,9 +41,5 @@
                 <button type="submit" class="btn btn-primary">Edytuj</button>
             </div>
         </form>
-
-
-</ul>
-
 
 </x-main>
