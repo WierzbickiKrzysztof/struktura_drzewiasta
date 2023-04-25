@@ -19,12 +19,13 @@
                 <span class="material-symbols-outlined">edit</span>
             </button>
 
+            <a href="/tree/pos/{{ $node->id }}" >
+                <button type="button" class="btn btn-link p-0 m-0"> <span class="material-symbols-outlined">menu_open</span></button>
 
-            <label>
-                <select>
-                    <option>{{ $node->position }}</option>
-                </select>
-            </label>
+            </a>
+
+
+
 
 
 

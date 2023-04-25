@@ -25,11 +25,14 @@ Route::get('/tree', [TreeController::class, 'index'])->name('tree.index');
 
 Route::get('/tree/{id}', [TreeController::class, 'indexWS'])->name('tree.indexWS');
 
+Route::get('/tree/pos/{id}', [TreeController::class, 'pos_edit'])->name('tree.pos_edit');
+
 Route::post('/tree', [TreeController::class, 'store'])->name('tree.store');
 
 
 
 Route::put('/tree/{tree}', [TreeController::class, 'update'])->name('tree.update');
+Route::put('/tree/pos/{tree}', [TreeController::class, 'update_pos'])->name('tree.update_pos');
 Route::delete('/tree/{tree}', [TreeController::class, 'destroy'])->name('tree.destroy');
 
 

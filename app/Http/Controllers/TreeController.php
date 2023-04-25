@@ -24,9 +24,6 @@ class TreeController extends Controller
     }
 
 
-
-
-
     public function index()
     {
         $tree = Tree::with('children')->whereNull('parent_id')->get()->sortBy('position');
@@ -45,6 +42,15 @@ class TreeController extends Controller
             $tree = Tree::with('children')->whereNull('parent_id')->get();
         }
         return view('tree.index', compact('tree'));
+    }
+
+
+    public function pos_edit($id)
+    {
+        $pos  = Tree::where('parent_id', $id)->pluck('name', 'id')->toArray();
+
+
+        return view('tree.pos_edit', compact('pos'));
     }
 
     public function create()
@@ -95,6 +101,24 @@ class TreeController extends Controller
         return redirect()->route('tree.index');
     }
 
+
+
+    public function update_pos(Request $request, Tree $tree)
+    {
+        //$node = Tree::find($id);
+
+
+
+            $formFields = $request->validate([
+
+                'position' => 'required'
+            ]);
+
+
+            $tree->update($formFields);
+
+        return redirect()->route('tree.index');
+    }
 
     public function destroy($id) // Tree $tree
     {

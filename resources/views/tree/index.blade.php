@@ -39,11 +39,10 @@
             <span class="material-symbols-outlined">edit</span>
         </button>
         <input type="hidden" name="position" id="position" value="{{ $node->position }}">
-        <label>
-            <select>
-                <option>{{ $node->position }}</option>
-            </select>
-        </label>
+        <a href="/tree/pos/{{ $node->id }}" >
+            <button type="button" class="btn btn-link p-0 m-0"> <span class="material-symbols-outlined">menu_open</span></button>
+
+        </a>
 
 
         @if ($node->position)
