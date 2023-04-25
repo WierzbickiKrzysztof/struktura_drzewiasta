@@ -10,7 +10,7 @@ class Tree extends Model
     use HasFactory;
 
     protected $table = 'tree';
-    protected $fillable = ['name', 'parent_id'];
+    protected $fillable = ['name', 'parent_id', 'position'];
     public function children()
     {
         return $this->hasMany(Tree::class, 'parent_id', 'id');

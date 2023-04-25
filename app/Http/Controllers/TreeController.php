@@ -25,9 +25,12 @@ class TreeController extends Controller
 
 
 
+
+
     public function index()
     {
-        $tree = Tree::with('children')->whereNull('parent_id')->get();
+        $tree = Tree::with('children')->whereNull('parent_id')->get()->sortBy('position');
+
 
         return view('tree.index', compact('tree'));
     }
@@ -73,7 +76,8 @@ class TreeController extends Controller
 
         if($request->get('parent_id') == "0"){
             $formFields = $request->validate([
-                'name' => 'required'
+                'name' => 'required',
+                'position' => 'nullable'
             ]);
             $tree->update($formFields);
 
@@ -81,7 +85,8 @@ class TreeController extends Controller
 
             $formFields = $request->validate([
                 'name' => 'required',
-                'parent_id' => 'required'
+                'parent_id' => 'required',
+                'position' => 'nullable'
             ]);
 
 

@@ -35,11 +35,34 @@
             <span class="material-symbols-outlined">cancel</span>
         </button>
 
-        <button type="button" id="edit" class="btn btn-link p-0 m-0" data-bs-toggle="modal" data-bs-target="#editModal"  onclick="editForm('{{ $node->name }}', '{{ $node->id }}')">
+        <button type="button" id="edit" class="btn btn-link p-0 m-0" data-bs-toggle="modal" data-bs-target="#editModal"  onclick="editForm('{{ $node->name }}', '{{ $node->id }}', '{{ $node->position }}')">
             <span class="material-symbols-outlined">edit</span>
         </button>
-        @if (count($node->children))
-        @include('tree.subtree', ['subtree' => $node->children])
+        <input type="hidden" name="position" id="position" value="{{ $node->position }}">
+        <label>
+            <select>
+                <option>{{ $node->position }}</option>
+            </select>
+        </label>
+
+
+        @if ($node->position)
+
+            @if (count($node->children))
+
+            @php( $position =  json_decode($node->position, true) )
+
+
+            @include('tree.subtree', ['subtree' => $node->children->sortBy(function ($model) use ($position) {
+                    return array_search($model->id, $position);
+                })])
+            @endif
+
+        @else
+            @if (count($node->children))
+
+                @include('tree.subtree', ['subtree' => $node->children])
+            @endif
         @endif
     </li>
     @endforeach
@@ -139,6 +162,19 @@
                                 <option value="">-- placeholder --</option>
                             </select>
                         </div>
+
+                    <div class="form-group">
+                        <label for="position_edit">Pozycja:</label>
+                        <input type="text" class="form-control" id="position_edit" name="position" required>
+                    </div>
+
+
+{{--                    <div class="form-group">--}}
+{{--                        <label for="position_edit">Pozycja:</label>--}}
+{{--                        <select class="form-control" id="position_edit" name="position">--}}
+{{--                            <option value="">-- placeholder --</option>--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
 
 
                 </div>
