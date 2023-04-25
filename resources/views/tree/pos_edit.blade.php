@@ -27,7 +27,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="history.back()">Wróć</button>
+                <a href="/"><button type="button" class="btn btn-secondary">Wróć</button></a>
                 <button type="submit" class="btn btn-primary">Zapisz</button>
             </div>
         </form>
