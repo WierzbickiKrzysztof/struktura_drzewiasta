@@ -1,4 +1,4 @@
-## Struktura drzewiasta - Laravel, PHP, MySQL, jQuery
+## Struktura drzewiasta - Laravel 10.5.1, PHP 8.2.4, MySQL, jQuery
 Prosta aplikacja webowa umożliwiająca zarządzanie strukturą drzewiastą.
 Funkcjonalności:
 - wyświetlanie struktury,
