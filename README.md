@@ -1,4 +1,4 @@
-## Struktura drzewiasta
+## Struktura drzewiasta - Laravel, PHP, MySQL, jQuery
 Prosta aplikacja webowa umożliwiająca zarządzanie strukturą drzewiastą.
 Funkcjonalności:
 - wyświetlanie struktury,
@@ -7,8 +7,6 @@ Funkcjonalności:
 - zmiana rodzica,
 - zmiana kolejności węzłów,
 - usuwanie węzłów
-
-**Laravel, PHP, MySQL, jQuery**
 
 Dla uproszczenia testowania opcje zarządzania (jak i możliwość ich wykonania) są dostępne bez logowania.
 
